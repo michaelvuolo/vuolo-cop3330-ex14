@@ -12,20 +12,20 @@ public class exercise {
         // create new scanner
         Scanner input = new Scanner(System.in);
 
-        // record new values
-        System.out.print("What is the principle amount? ");
-        int principle = input.nextInt();
-        System.out.print("What is the rate? ");
-        double rate = input.nextDouble();
-        System.out.print("What is the number of years? ");
-        int years = input.nextInt();
-        System.out.print("What is the number of times the interest is compounded per year? ");
-        int times = input.nextInt();
+        // record values
+        System.out.print("What is the order amount? ");
+        double order_amount = Double.parseDouble(input.nextLine());
+        System.out.print("What is the state? ");
+        String state = input.nextLine();
 
-        // calculate
-        double compounded_interest = principle * Math.pow(1 + ((rate / 100) / times), times * years);
+        // output
+        System.out.print("The subtotal is $" + String.format("%.2f", order_amount) + ".");
 
-        // output compounded interest
-        System.out.printf("$%d invested at %.1f%% for %d years compounded %d times per year is $%.2f.", principle, rate, years, times, compounded_interest);
+        // calculate total
+        double tax = order_amount * (.01 * 5.5);
+        double total = order_amount + tax;
+
+        // calculate total
+        if (state.toUpperCase().equals("WI")) System.out.print("\n" + "The tax is $" + tax + "." + "\n" + "The total is $" + total + ".");
     }
 }
